@@ -11,6 +11,7 @@ func main() {
 
 	// Register routes from other packages
 	routes.RegisterHelloRoute(r)
+	routes.RegisterUserRoute(r)
 
 	r.Run(":3600") // starts the server
 }
