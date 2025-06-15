@@ -21,7 +21,15 @@ func (h *UserHandler) GetUsers(c *gin.Context) {
 func (h *UserHandler) GetUserByID(c *gin.Context) {
 	id := c.Param("id")
 
-	user := h.UserService.GetUser(id)
+	user, err := h.UserService.GetUserByID(id)
 
-	c.JSON(http.StatusOK, gin.H{"user": user})
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+	}
+
+	if user == nil {
+		c.JSON(http.StatusNotFound, nil)
+	}
+
+	c.JSON(http.StatusOK, user)
 }

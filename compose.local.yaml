@@ -13,8 +13,3 @@ services:
       - ./storage/init-scripts/init-localstack-setup.sh:/etc/localstack/init/ready.d/script.sh
       - ./storage/init-scripts/dynamodb-table-definition.json:/opt/code/localstack/dynamodb-table-definition.json
       - ./storage/init-scripts/data/:/opt/code/localstack/data/
-
-  app:
-    build: .
-    ports:
-      - "3600:3600"

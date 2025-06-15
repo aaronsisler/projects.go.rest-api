@@ -1,0 +1,214 @@
+{
+  "SERVICES_EVENTS_ADMIN_SERVICE": [
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Body Wisdom Meetup"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Body Wisdom Meetup"
+          },
+          "description": {
+            "S": "In this workshop, we focus on simple, practical ways to practice mindfulness and body awareness. It’s all about reconnecting with your intuition to feel more balanced and focused in daily life. There’s always open discussion so we can learn from each other and explore what works best for everyone. We typically close each session with breath work or a guided meditation tailored to the topic we’re exploring."
+          },
+          "category": {
+            "S": "Wellness Center"
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Couples Massage Workshop"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Couples Massage Workshop"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": "Wellness Center"
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Line Dancing"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Line Dancing"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": ""
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Reiki Restorative Yoga Workshop"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Reiki Restorative Yoga Workshop"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": ""
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Rooted in Wellness Herbal Workshop"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Rooted in Wellness Herbal Workshop"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": ""
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Sound Bath"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Sound Bath"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": ""
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "sortKey": {
+            "S": "EVENT#Women's Circle"
+          },
+          "establishmentId": {
+            "S": "body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Women's Circle"
+          },
+          "description": {
+            "S": ""
+          },
+          "category": {
+            "S": ""
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    }
+  ]
+}
