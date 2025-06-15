@@ -1,6 +1,7 @@
 package user
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -15,7 +16,18 @@ func NewUserHandler(userService *UserService) *UserHandler {
 }
 
 func (h *UserHandler) GetUsers(c *gin.Context) {
-	c.JSON(http.StatusNoContent, nil)
+	fmt.Println("RAWR")
+	users, err := h.UserService.GetUsers()
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+	}
+
+	if len(users) == 0 {
+		c.JSON(http.StatusNotFound, nil)
+	}
+
+	c.JSON(http.StatusOK, users)
 }
 
 func (h *UserHandler) GetUserByID(c *gin.Context) {

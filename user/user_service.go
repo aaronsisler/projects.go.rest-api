@@ -20,9 +20,31 @@ func NewUserService(ddb *dynamodb.Client) *UserService {
 	}
 }
 
-func (s *UserService) GetUser(id string) string {
-	// Just a dummy example
-	return fmt.Sprintf("User: %s", id)
+func (s *UserService) GetUsers() ([]User, error) {
+	out, err := s.ddb.Query(context.TODO(), &dynamodb.QueryInput{
+		TableName:              aws.String("SERVICES_EVENTS_ADMIN_SERVICE"),
+		KeyConditionExpression: aws.String("partitionKey = :pk"),
+		ExpressionAttributeValues: map[string]types.AttributeValue{
+			":pk": &types.AttributeValueMemberS{Value: "USER"},
+		},
+	})
+
+	if err != nil {
+		return nil, fmt.Errorf("query failed: %w", err)
+	}
+
+	users := make([]User, 0, len(out.Items))
+	for _, item := range out.Items {
+		user, err := mapItemToUser(item)
+		if err != nil {
+			// Log and skip the bad item instead of failing the whole request
+			fmt.Printf("error mapping item to user: %v\n", err)
+			continue
+		}
+		users = append(users, *user)
+	}
+
+	return users, nil
 }
 
 func (s *UserService) GetUserByID(id string) (*User, error) {
