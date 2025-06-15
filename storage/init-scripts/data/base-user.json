@@ -1,0 +1,30 @@
+{
+  "SERVICES_EVENTS_ADMIN_SERVICE": [
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "USER"
+          },
+          "sortKey": {
+            "S": "USER#aaron-sisler-id"
+          },
+          "establishmentIds": {
+            "SS": [
+              "body-kinect-wellness-center-establishment-id"
+            ]
+          },
+          "name": {
+            "S": "Aaron Sisler"
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    }
+  ]
+}

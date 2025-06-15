@@ -1,0 +1,25 @@
+{
+  "SERVICES_EVENTS_ADMIN_SERVICE": [
+    {
+      "PutRequest": {
+        "Item": {
+          "partitionKey": {
+            "S": "ESTABLISHMENT"
+          },
+          "sortKey": {
+            "S": "ESTABLISHMENT#body-kinect-wellness-center-establishment-id"
+          },
+          "name": {
+            "S": "Body Kinect Wellness Center"
+          },
+          "createdOn": {
+            "S": "2025-01-01T22:02:34"
+          },
+          "lastUpdatedOn": {
+            "S": "2025-01-01T22:02:34"
+          }
+        }
+      }
+    }
+  ]
+}
