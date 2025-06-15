@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
+	"os"
 	"rest-api/hello"
 	"rest-api/routes"
 	"rest-api/user"
@@ -14,11 +16,8 @@ import (
 )
 
 var ddb *dynamodb.Client
-var endpoint string
 
 func main() {
-	endpoint = "http://localhost:4566"
-	// endpoint = "http://storage:4566"
 
 	initDynamoDB()
 
@@ -56,8 +55,22 @@ func initDynamoDB() {
 		log.Fatalf("unable to load config: %v", err)
 	}
 
+	var endpoint *string
+
+	env := os.Getenv("APP_ENV")
+	fmt.Println("env")
+	fmt.Println(env)
+	url := "http://localhost:4566"
+	if env == "dev" {
+		url = "http://storage:4566"
+	}
+
+	endpoint = &url
+
 	// Construct the DynamoDB client using BaseEndpoint (this is not deprecated)
 	ddb = dynamodb.NewFromConfig(cfg, func(o *dynamodb.Options) {
-		o.BaseEndpoint = &endpoint
+		if endpoint != nil {
+			o.BaseEndpoint = endpoint
+		}
 	})
 }
