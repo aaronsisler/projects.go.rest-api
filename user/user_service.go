@@ -3,8 +3,10 @@ package user
 import (
 	"context"
 	"fmt"
+	"strings"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 )
@@ -70,22 +72,19 @@ func (s *UserService) GetUserByID(id string) (*User, error) {
 }
 
 func mapItemToUser(item map[string]types.AttributeValue) (*User, error) {
-	user := &User{}
+	var user User
 
-	// Map "name" (string)
-	if v, ok := item["name"].(*types.AttributeValueMemberS); ok {
-		user.Name = v.Value
+	err := attributevalue.UnmarshalMap(item, &user)
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal DynamoDB item to User: %w", err)
+	}
+
+	if v, ok := item["sortKey"].(*types.AttributeValueMemberS); ok {
+		user.ID = strings.TrimPrefix(v.Value, "USER#")
 	} else {
 		return nil, fmt.Errorf("name attribute missing or wrong type")
 	}
 
-	// Map "establishmentIds" (string set)
-	if v, ok := item["establishmentIds"].(*types.AttributeValueMemberSS); ok {
-		user.EstablishmentIds = v.Value
-	} else {
-		// Could be missing, so just assign empty slice if absent
-		user.EstablishmentIds = []string{}
-	}
-
-	return user, nil
+	return &user, nil
 }
