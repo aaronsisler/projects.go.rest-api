@@ -1,7 +1,6 @@
 package user
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +15,6 @@ func NewUserHandler(userService *UserService) *UserHandler {
 }
 
 func (h *UserHandler) GetUsers(c *gin.Context) {
-	fmt.Println("RAWR")
 	users, err := h.UserService.GetUsers()
 
 	if err != nil {

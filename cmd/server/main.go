@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 	"rest-api/hello"
@@ -58,8 +57,6 @@ func initDynamoDB() {
 	var endpoint *string
 
 	env := os.Getenv("APP_ENV")
-	fmt.Println("env")
-	fmt.Println(env)
 	url := "http://localhost:4566"
 	if env == "dev" {
 		url = "http://storage:4566"
